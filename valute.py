@@ -32,7 +32,7 @@ for v in valute:
 
     if get_text(code) == country_code:
         print(f'Code:{get_text(code)} Nominal:{get_text(nominal)} Value:{get_text(value)}')
-        print(f'1 RUB = {round(f_value / i_nominal, 3)} JPY')
+        print(f'1 RUB = {round(i_nominal / f_value, 3)} JPY')
 
 
 

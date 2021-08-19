@@ -1,30 +1,15 @@
 
 import json
-import xml.etree.ElementTree as ET
 import requests
 
-jup_code = 'JPY'
+api_key = '302045706e64933a664f4b4fcdbfb6bb'
+lat = '54.7431'
+lon = '55.9678'
+part = 'hourly,daily'
 
+request = requests.get(f'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={api_key}')
 
-def get_struct(code):
-    response = requests.get("http://www.cbr.ru/scripts/XML_daily.asp")
-    data = response.text
-    data = data.replace('<', '\n')
-    data = data.replace('>', ' ')
-    data = data.split('\n')
-    get_value = False
-    struct = ''
-    for val in data:
-        if val == f'CharCode {code}':
-            get_value = True
-            # print(val)
-        if get_value and val.find('/'):
-            struct += val + '\n'
-    return struct
-
-
-s = get_struct(jup_code).split('\n')
-print(s)
+print(request.content)
 
 
 
