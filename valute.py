@@ -1,4 +1,3 @@
-import threading
 import xml.dom.minidom
 import urllib.request
 from math import *
